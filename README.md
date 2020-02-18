@@ -1,2 +1,2 @@
-# PRAP
+# OPRP
 Programação Paralela
