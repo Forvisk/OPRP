@@ -33,21 +33,23 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	mymatriz *mat_c = NULL;
 	int nMe = 0;
 
-	if ((mat_a->lin != mat_b->col) || (mat_a->col != mat_b->lin)){
-		printf ("Erro: Matrizes incompatíveis!\n");
-		exit(1);
+	if ((mat_a->lin != mat_b->col) && (mat_a->col != mat_b->lin)){
+		
 	}
 
-	if (tipo == 1){
+	if ((tipo == 1) && (mat_a->col == mat_b->lin)){
 		mat_c = (mymatriz *) malloc (sizeof(mymatriz));
 		mat_c->lin = mat_a->lin;
 		mat_c->col = mat_b->col;
 		nMe = mat_b->lin;
-	} else {
+	} else if ((tipo != 1) && (mat_a->lin == mat_b->col)){
 		mat_c = (mymatriz *) malloc (sizeof(mymatriz));
 		mat_c->lin = mat_b->lin;
 		mat_c->col = mat_a->col;
-		nMe = mat_b->col;
+		nMe = mat_a->lin;
+	}else{
+		printf ("Erro: Matrizes incompatíveis!\n");
+		exit(1);
 	}
 
 	if (malocar(mat_c)) {	printf ("ERROR: Out of memory\n"); }
