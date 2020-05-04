@@ -56,7 +56,7 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	if (tipo == 1) {
 		for( int i=0; i< mat_c->lin; i++)
 			for (int j = 0; j < mat_c->col; j++) {
-				mat_c->matriz[i][j] = 0
+				mat_c->matriz[i][j] = 0;
 				for (int k = 0; k < nMe; k++) {
 					mat_c->matriz[i][j] += mat_a->matriz[i][k] * mat_b->matriz[k][j];
 				}
@@ -65,7 +65,7 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	}else{
 		for( int i=0; i< mat_c->lin; i++)
 			for (int j = 0; j < mat_c->col; j++) {
-				mat_c->matriz[i][j] = 0
+				mat_c->matriz[i][j] = 0;
 				for (int k = 0; k < nMe; k++) {
 					mat_c->matriz[i][j] += mat_a->matriz[k][j] * mat_b->matriz[i][k];
 				}
