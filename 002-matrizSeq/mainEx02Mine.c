@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
 	int N, M, La, Lb;
 	double start_time, end_time;
 	// %%%%%%%%%%%%%%%%%%%%%%%% END %%%%%%%%%%%%%%%%%%%%%%%%
-	printf("Iniciando\n");
+	//printf("Iniciando\n");
 	if (argc != 3){
 		printf ("ERRO: Numero de parametros %s <matriz_a> <matriz_b>\n", argv[0]);
 		exit (1);
@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
 	free (vet_line);
 	fclose(fmat);
 	// %%%%%%%%%%%%%%%%%%%%%%%% END %%%%%%%%%%%%%%%%%%%%%%%%
-
+	
 	// %%%%%%%%%%%%%%%%%%%%%%%% BEGIN %%%%%%%%%%%%%%%%%%%%%%%%
 	//               Leitura da Matriz B (arquivo)
 	fmat = fopen(argv[2],"r");

@@ -4,7 +4,7 @@
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 mymatriz *msomar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	mymatriz *mat_c = NULL;
-	printf("here soma 1\n");
+	//printf("here soma 1\n");
 	if ((mat_a->lin != mat_b-> lin) || (mat_a->col != mat_b->col)){
 		printf("Matriz a: %d %d \n", mat_a->lin, mat_a->col);
 		printf("Matriz b: %d %d \n", mat_b->lin, mat_b->col);
@@ -34,7 +34,7 @@ mymatriz *msomar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	mymatriz *mat_c = NULL;
 	tipo = tipo % 2;
-	printf("here1\n");
+
 	if ((tipo == 0) && (mat_a->col == mat_b->lin)){
 		mat_c = (mymatriz *) malloc (sizeof(mymatriz));
 		mat_c->lin = mat_a->lin;
@@ -51,9 +51,10 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 		printf ("Erro: Matrizes incompatíveis!\n");
 		exit(1);
 	}
-	printf("here2\n");
+
 	if (malocar(mat_c)) {	printf ("ERROR: Out of memory\n"); }
-	printf("here3\n");
+	
+	/*
 	//Primeiro testemos a forma IDIOTA
 	if (tipo == 0) {
 		for( int i=0; i< mat_c->lin; i++)
@@ -72,12 +73,18 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 					mat_c->matriz[i][j] += mat_a->matriz[k][j] * mat_b->matriz[i][k];
 				}
 			}
-	}
-	printf("here4\n");
+	}*/
+
+	// Iniciar espagitificação da matriz
+	/*if ( tipo == 0){
+		espagitificaMatriz(&mat_a, &mat_b, &mat_c);
+	}else{
+		espagitificaMatriz(&mat_b, &mat_a, &mat_c);
+	}*/
 	return mat_c;
 }
-/*
 
+/*Sempre A x B = C*/
 int multiplicar_submatriz (matriz_bloco_t *mat_suba, matriz_bloco_t *mat_subb, matriz_bloco_t *mat_subc){
 	for ( int ic = mat_subc->bloco->lin_inicio; ic < mat_subc->bloco->lin_fim; ic++)
 		for ( int jc = mat_subc->bloco->col_inicio; jc < mat_subc->bloco->col_fim; jc++){
@@ -86,4 +93,12 @@ int multiplicar_submatriz (matriz_bloco_t *mat_suba, matriz_bloco_t *mat_subb, m
 		}
 	return 0;
 }
-*/
+
+int espagitificaMatriz ( mymatriz *mat_a, mymatriz *mat_b, mymatriz *mat_c){
+	matriz_bloco_t *mat_suba = NULL;
+	matriz_bloco_t *mat_subb = NULL;
+	matriz_bloco_t *mat_subc = NULL;
+
+	mat_suba = (matriz_bloco_t *) malloc ()
+	return 0;
+}
