@@ -63,8 +63,8 @@ int main(int argc, char *argv[]) {
 	free (vet_line);
 	fclose(fmat);
 	// %%%%%%%%%%%%%%%%%%%%%%%% END %%%%%%%%%%%%%%%%%%%%%%%%
-	mimprimir(&mat_a);
-	mimprimir(&mat_b);
+	//mimprimir(&mat_a);
+	//mimprimir(&mat_b);
 	// %%%%%%%%%%%%%%%%%%%%%%%% BEGIN %%%%%%%%%%%%%%%%%%%%%%%%
 	//                 Operações de Adição
 	mat_soma = (mymatriz **) calloc (2,sizeof(mymatriz *));
@@ -83,8 +83,8 @@ int main(int argc, char *argv[]) {
 	// %%%%%%%%%%%%%%%%%%%%%%%% END %%%%%%%%%%%%%%%%%%%%%%%%
 
 	printf("\n%%%%%%%%%%%%%%%%\n");
-	mimprimir(&mat_a);
-	mimprimir(&mat_b);
+	//mimprimir(&mat_a);
+	//mimprimir(&mat_b);
 
 	// %%%%%%%%%%%%%%%%%%%%%%%% BEGIN %%%%%%%%%%%%%%%%%%%%%%%%
 	//               Operações de Multiplicação
@@ -92,7 +92,7 @@ int main(int argc, char *argv[]) {
 	for (int ii=0; ii < 6; ii++) {
 		printf("\n ##### multiplicar_t%d de Matrizes #####\n", ii);
 		start_time = wtime();
-		mat_mult[ii] = mmultiplicar(&mat_a, &mat_a, ii);
+		mat_mult[ii] = mmultiplicar(&mat_a, &mat_b, ii);
 		end_time = wtime();
 		mimprimir(mat_mult[ii]);
 		printf("\tRuntime: %f\n", end_time - start_time);
