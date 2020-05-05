@@ -32,11 +32,13 @@ mymatriz *msomar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	mymatriz *mat_c = NULL;
 	int nMe = 0;
-
+	/*
 	if ((mat_a->lin != mat_b->col) && (mat_a->col != mat_b->lin)){
 		
 	}
-
+*/
+	printf("Matriz a: %d %d \n", mat_a->lin, mat_a->col);
+	printf("Matriz b: %d %d \n", mat_b->lin, mat_b->col);
 	if ((tipo == 1) && (mat_a->col == mat_b->lin)){
 		mat_c = (mymatriz *) malloc (sizeof(mymatriz));
 		mat_c->lin = mat_a->lin;
