@@ -2,7 +2,7 @@
 #include <time.h>
 #include <sys/time.h>
 
-#define _DEBUG_ 0
+#define _DEBUG_ 1
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FERRAMENTAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
