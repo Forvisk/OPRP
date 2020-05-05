@@ -86,7 +86,7 @@ int multiplicar_submatriz (matriz_bloco_t *mat_suba, matriz_bloco_t *mat_subb, m
 	for ( int ic = mat_subc->bloco->lin_inicio; ic < mat_subc->bloco->lin_fim; ic++)
 		for ( int jc = mat_subc->bloco->col_inicio; jc < mat_subc->bloco->col_fim; jc++){
 			for(int k = 0; k <  mat_suba->bloco->lin_fim; k++)
-				mat_subc->matriz[ic][jc] += mat_suba->matriz[ic][k] * mat_subb->matriz[k][jc]
+				mat_subc->matriz[ic][jc] += mat_suba->matriz[ic][k] * mat_subb->matriz[k][jc];
 		}
-	return 0
+	return 0;
 }
