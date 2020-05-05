@@ -37,6 +37,8 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 		
 	}
 */
+	mimprimir(mat_a)
+	mimprimir(mat_b)
 	
 	if ((tipo == 1) && (mat_a->col == mat_b->lin)){
 		mat_c = (mymatriz *) malloc (sizeof(mymatriz));
