@@ -34,7 +34,7 @@ mymatriz *msomar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	mymatriz *mat_c = NULL;
 	int nMe = 0;
-	tipo = tipo % 2;
+	//tipo = tipo % 2;
 	if ((tipo == 0) && (mat_a->col == mat_b->lin)){
 		mat_c = (mymatriz *) malloc (sizeof(mymatriz));
 		mat_c->lin = mat_a->lin;
