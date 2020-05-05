@@ -53,7 +53,7 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	}
 	printf("here2\n");
 	if (malocar(mat_c)) {	printf ("ERROR: Out of memory\n"); }
-
+	printf("here3\n");
 	//Primeiro testemos a forma IDIOTA
 	if (tipo == 1) {
 		for( int i=0; i< mat_c->lin; i++)
@@ -73,7 +73,7 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 				}
 			}
 	}
-
+	printf("here4\n");
 	return mat_c;
 }
 
