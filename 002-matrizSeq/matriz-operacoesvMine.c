@@ -37,8 +37,7 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 		
 	}
 */
-	printf("Matriz a: %d %d \n", mat_a->lin, mat_a->col);
-	printf("Matriz b: %d %d \n", mat_b->lin, mat_b->col);
+	
 	if ((tipo == 1) && (mat_a->col == mat_b->lin)){
 		mat_c = (mymatriz *) malloc (sizeof(mymatriz));
 		mat_c->lin = mat_a->lin;
@@ -50,6 +49,8 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 		mat_c->col = mat_a->col;
 		nMe = mat_a->lin;
 	}else{
+		printf("Matriz a: %d %d \n", mat_a->lin, mat_a->col);
+		printf("Matriz b: %d %d \n", mat_b->lin, mat_b->col);
 		printf ("Erro: Matrizes incompatíveis!\n");
 		exit(1);
 	}
