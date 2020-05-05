@@ -99,6 +99,10 @@ int espagitificaMatriz ( mymatriz *mat_a, mymatriz *mat_b, mymatriz *mat_c){
 	matriz_bloco_t *mat_subb = NULL;
 	matriz_bloco_t *mat_subc = NULL;
 
+	bloco_t *bloco = NULL
+
 	mat_suba = (matriz_bloco_t *) malloc ( sizeof(matriz_bloco_t));
+	mat_subb = (matriz_bloco_t *) malloc ( sizeof(matriz_bloco_t));
+	mat_subc = (matriz_bloco_t *) malloc ( sizeof(matriz_bloco_t));
 	return 0;
 }
