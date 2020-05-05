@@ -51,7 +51,7 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 		printf ("Erro: Matrizes incompatíveis!\n");
 		exit(1);
 	}
-
+	printf("here2\n");
 	if (malocar(mat_c)) {	printf ("ERROR: Out of memory\n"); }
 
 	//Primeiro testemos a forma IDIOTA
