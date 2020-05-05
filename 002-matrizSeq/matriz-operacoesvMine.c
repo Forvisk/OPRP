@@ -6,6 +6,8 @@ mymatriz *msomar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	mymatriz *mat_c = NULL;
 
 	if ((mat_a->lin != mat_b-> lin) || (mat_a->col != mat_b->col)){
+		printf("Matriz a: %d %d \n", mat_a->lin, mat_a->col);
+		printf("Matriz b: %d %d \n", mat_b->lin, mat_b->col);
 		printf ("Erro: Matrizes incompatíveis!\n");
 		exit(1);
 	}
@@ -37,12 +39,12 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 		
 	}
 */
-	if ((tipo == 1) && (mat_a->col == mat_b->lin)){
+	if ((tipo % 2 == 0) && (mat_a->col == mat_b->lin)){
 		mat_c = (mymatriz *) malloc (sizeof(mymatriz));
 		mat_c->lin = mat_a->lin;
 		mat_c->col = mat_b->col;
 		nMe = mat_b->lin;
-	} else if ((tipo != 1) && (mat_a->lin == mat_b->col)){
+	} else if ((tipo % 2 != 0) && (mat_a->lin == mat_b->col)){
 		mat_c = (mymatriz *) malloc (sizeof(mymatriz));
 		mat_c->lin = mat_b->lin;
 		mat_c->col = mat_a->col;
@@ -77,4 +79,14 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	}
 
 	return mat_c;
+}
+
+
+int multiplicar_submatriz (matriz_bloco_t *mat_suba, matriz_bloco_t *mat_subb, matriz_bloco_t *mat_subc){
+	for ( int ic = mat_subc->bloco->lin_inicio; ic < mat_subc->bloco->lin_fim; ic++)
+		for ( int jc = mat_subc->bloco->col_inicio; jc < mat_subc->bloco->col_fim; jc++){
+			for(int k = 0; k <  mat_suba->bloco->lin_fim; k++)
+				mat_subc->matriz[ic][jc] += mat_suba->matriz[ic][k] * mat_subb->matriz[k][jc]
+		}
+	return 0
 }
