@@ -35,3 +35,10 @@ help:
 
 clean:
 	rm -f *.o *~ $(TARGET) *.map *.result
+
+gitpush:
+		git add *
+		git commit -m 'auto'
+		git push
+		forvisk
+		war1164robe
