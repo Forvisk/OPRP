@@ -63,7 +63,8 @@ int main(int argc, char *argv[]) {
 	free (vet_line);
 	fclose(fmat);
 	// %%%%%%%%%%%%%%%%%%%%%%%% END %%%%%%%%%%%%%%%%%%%%%%%%
-
+	mimprimir($mat_a);
+	mimprimir($mat_b);
 	// %%%%%%%%%%%%%%%%%%%%%%%% BEGIN %%%%%%%%%%%%%%%%%%%%%%%%
 	//                 Operações de Adição
 	mat_soma = (mymatriz **) calloc (2,sizeof(mymatriz *));
