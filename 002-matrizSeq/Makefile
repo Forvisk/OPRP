@@ -40,5 +40,3 @@ gitpush:
 		git add *
 		git commit -m 'auto'
 		git push
-		@echo 'forvisk'
-		@echo 'war1164robe'
