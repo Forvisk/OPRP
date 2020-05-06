@@ -65,7 +65,6 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 					mat_c->matriz[i][j] += mat_a->matriz[i][k] * mat_b->matriz[k][j];
 				}
 			}
-
 	}else{
 		for( int i=0; i< mat_c->lin; i++)
 			for (int j = 0; j < mat_c->col; j++) {
@@ -76,11 +75,11 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 			}
 	}
 
-	if ( criaSubmatriz(&mat_a, 1, 2, 1, 2, &submatTeste) == 1){
+	if ( criaSubmatriz(&mat_a, 0, mat_a->lin, 0, mat_a->col, &submatTeste) == 1){
 		printf("Erro ao criar bloco\n");
 	}else{
 		printf("printBloco\n");
-		mostraSubmatriz( &submatTeste);
+		//mostraSubmatriz( &submatTeste);
 	}
 
 	return mat_c;
@@ -106,6 +105,7 @@ int criaSubmatriz( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, i
 	newBloco->bloco->lin_fim= lin_fim;
 	newBloco->bloco->col_inicio = col_inicio;
 	newBloco->bloco->col_fim = col_fim;
+	printf("%i %i\n", size[0], size[1]);
 
 	newBloco->matriz = (int **) malloc( size[0] * sizeof(int *));
 	if (!newBloco->matriz) {
@@ -122,7 +122,7 @@ int criaSubmatriz( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, i
 	printf("criaBloco 2\n");
 	for (int i = 0; i < size[0]; ++i){
 		for (int j = 0; j < size[1]; ++j) {
-			//newBloco->matriz[i][j] = mat->matriz[lin_inicio + i][col_inicio + j];
+			newBloco->matriz[i][j] = mat->matriz[lin_inicio + i][col_inicio + j];
 			printf("bloco[%i][%i] = %i\t", i, j, newBloco->matriz[i][j]);
 		}
 		printf("\n");
@@ -136,12 +136,12 @@ int criaSubmatriz( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, i
 }
 
 void mostraSubmatriz( matriz_bloco_t *submat){
-	printf("printBloco 1\n");
 	int lin_inicio = submat->bloco->lin_inicio;
 	int lin_fim = submat->bloco->lin_fim;
 	int col_inicio = submat->bloco->col_inicio;
 	int col_fim = submat->bloco->col_fim;
 	int size[2] = {	lin_fim - lin_inicio, col_fim - col_inicio};
+
 	printf("Submatriz:\tlinha\tcoluna\n");
 	printf("\tinicio: %i\t %i\n", lin_inicio, col_inicio);
 	printf("\tfim:%i\t %i\n", lin_fim, col_fim);
