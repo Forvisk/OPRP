@@ -98,7 +98,7 @@ int multiplicar_submatriz (matriz_bloco_t *mat_suba, matriz_bloco_t *mat_subb, m
 int criaBloco( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, int col_fim, matriz_bloco_t *submat){
 	matriz_bloco_t *newBloco = NULL;
 	int size[2] = {lin_fim - col_inicio, col_fim - col_inicio};
-
+	printf("criaBloco 1\n");
 	newBloco = (matriz_bloco_t *) malloc (sizeof(matriz_bloco_t));
 	newBloco->bloco = (bloco_t *) malloc (sizeof(bloco_t));
 	newBloco->bloco->lin_inicio = lin_inicio;
@@ -118,7 +118,7 @@ int criaBloco( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, int c
 				return 1;
 			}
 	}
-
+	printf("criaBloco 2\n");
 	for (int i = 0; i < size[0]; ++i)
 		for (int j = 0; j < size[1]; ++j) {
 			newBloco->matriz[i][j] = mat->matriz[lin_inicio + i][col_inicio + j];
