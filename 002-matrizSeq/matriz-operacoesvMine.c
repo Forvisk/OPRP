@@ -76,7 +76,7 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	}
 	printf("Gera submatriz\n");
 	submatTeste = (matriz_bloco_t * ) malloc (sizeof( matriz_bloco_t));
-	criaSubmatriz(mat_a->matriz, 0, mat_a->lin, 0, mat_a->col, &submatTeste);
+	criaSubmatriz(mat_a->matriz, &submatTeste, 0, mat_a->lin, 0, mat_a->col);
 
 	printf("printBloco %i\n", submatTeste->bloco->lin_inicio);
 	mostraSubmatriz( submatTeste);
