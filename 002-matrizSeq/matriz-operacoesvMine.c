@@ -133,6 +133,7 @@ int criaSubmatriz( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, i
 }
 
 void mostraSubmatriz( matriz_bloco_t *submat){
+	printf("printBloco 1\n");
 	int lin_inicio = submat->bloco->lin_inicio;
 	int lin_fim = submat->bloco->lin_fim;
 	int col_inicio = submat->bloco->col_inicio;
