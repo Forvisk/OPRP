@@ -32,4 +32,4 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo);
 int multiplicar_submatriz (matriz_bloco_t *mat_suba, matriz_bloco_t *mat_subb, matriz_bloco_t *mat_subc);
 
 int criaSubmatriz( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, int col_fim, matriz_bloco_t *submat);
-void printBloco( matriz_bloco_t *submat);
+void mostraSubmatriz( matriz_bloco_t *submat);

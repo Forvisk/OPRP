@@ -120,10 +120,13 @@ int criaSubmatriz( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, i
 			}
 	}
 	printf("criaBloco 2\n");
-	for (int i = 0; i < size[0]; ++i)
+	for (int i = 0; i < size[0]; ++i){
 		for (int j = 0; j < size[1]; ++j) {
 			newBloco->matriz[i][j] = mat->matriz[lin_inicio + i][col_inicio + j];
+			printf("bloco[%i][%i] = %i\t", i, j, newBloco->matriz[i][j]);
 		}
+		printf("\n");
+	}
 
 	printf("criaBloco 3\n");
 	submat = newBloco;
