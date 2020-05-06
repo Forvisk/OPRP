@@ -95,7 +95,7 @@ int multiplicar_submatriz (matriz_bloco_t *mat_suba, matriz_bloco_t *mat_subb, m
 	return 0;
 }
 
-int criaSubmatriz( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, int col_fim, matriz_bloco_t *submat){,
+int criaSubmatriz( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, int col_fim, matriz_bloco_t *submat){
 	if ((lin_inicio > lin_fim) || (col_inicio > col_fim)) {
 		printf("Bloco incompativel!\n");
 		return 1;
