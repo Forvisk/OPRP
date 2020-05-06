@@ -98,7 +98,6 @@ int multiplicar_submatriz (matriz_bloco_t *mat_suba, matriz_bloco_t *mat_subb, m
 int criaSubmatriz( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, int col_fim, matriz_bloco_t *submat){
 
 	matriz_bloco_t *newBloco = NULL;
-	int size[2] = {lin_fim - lin_inicio+1, col_fim - col_inicio+1};
 	newBloco = (matriz_bloco_t *) malloc (sizeof(matriz_bloco_t));
 	newBloco->bloco = (bloco_t *) malloc (sizeof(bloco_t));
 	newBloco->bloco->lin_inicio = lin_inicio;
@@ -112,23 +111,7 @@ int criaSubmatriz( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, i
 		return 1;
 	}
 
-	newBloco->matriz = (int **) malloc( size[0] * sizeof(int *));
-	if (!newBloco->matriz) {
-		printf("ERROR: Out of memory\n");
-		return 1;
-	}
-  	for (int i = 0; i < size[0]; i++) {
-			newBloco->matriz[i] = (int *) malloc(sizeof(int) * size[1]);
-			if (!newBloco->matriz) {
-				printf("ERROR: Out of memory\n");
-				return 1;
-			}
-	}
-	for (int i = 0; i < size[0]; i++){
-		for (int j = 0; j < size[1]; j++) {
-			newBloco->matriz[i][j] = mat->matriz[lin_inicio + i][col_inicio + j];
-		}
-	}
+	newBloco->matriz = mat->matriz;
 
 	submat = newBloco;
 	return 0;
@@ -136,19 +119,18 @@ int criaSubmatriz( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, i
 
 void mostraSubmatriz( matriz_bloco_t *submat){
 	printf("mostraSubmatriz 1\n");
-	int lin_inicio = submat->bloco->lin_inicio+1;
+	int lin_inicio = submat->bloco->lin_inicio;
 	int lin_fim = submat->bloco->lin_fim;
-	int col_inicio = submat->bloco->col_inicio+1;
+	int col_inicio = submat->bloco->col_inicio;
 	int col_fim = submat->bloco->col_fim;
-	int size[2] = {	lin_fim - lin_inicio, col_fim - col_inicio};
 
 	printf("Submatriz:\tlinha\tcoluna\n");
 	printf("\tinicio: %i\t %i\n", lin_inicio, col_inicio);
 	printf("\tfim:%i\t %i\n", lin_fim, col_fim);
 	printf("Valores:");
-	for (int i = 0; i < size[0]; i++){
+	for (int i = lin_inicio; i < col_fim; i++){
 			printf("\t\n");
-			for(int j = 0; j < size[1]; j++)
+			for(int j = col_inicio; j < col_fim; j++)
 				printf("%i\t", submat->matriz[i][j]);
 	}
 	printf("\nFim Submatriz\n");
