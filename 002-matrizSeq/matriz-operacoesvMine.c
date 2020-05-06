@@ -79,7 +79,7 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 		printf("Erro ao criar bloco\n");
 	}else{
 		printf("printBloco\n");
-		mostraSubmatriz( &submatTeste);
+		mostraSubmatriz( submatTeste);
 	}
 
 	return mat_c;
