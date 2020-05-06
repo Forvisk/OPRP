@@ -75,7 +75,7 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 			}
 	}
 
-	if ( criaSubmatriz(&mat_a, 0, mat_a->lin, 0, mat_a->col, &submatTeste) == 1){
+	if ( criaSubmatriz(mat_a, 0, mat_a->lin, 0, mat_a->col, submatTeste) == 1){
 		printf("Erro ao criar bloco\n");
 	}else{
 		printf("printBloco\n");
@@ -126,7 +126,7 @@ int criaSubmatriz( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, i
 			newBloco->matriz[i][j] = mat->matriz[lin_inicio + i][col_inicio + j];
 			printf("%i\t", newBloco->matriz[i][j]);
 		}
-		printf("l\n");
+		printf("\n|");
 	}
 
 	printf("criaBloco 3\n");
