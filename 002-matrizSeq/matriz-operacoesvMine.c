@@ -96,10 +96,6 @@ int multiplicar_submatriz (matriz_bloco_t *mat_suba, matriz_bloco_t *mat_subb, m
 }
 
 int criaSubmatriz( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, int col_fim, matriz_bloco_t *submat){
-	if ((lin_inicio > lin_fim) || (col_inicio > col_fim)) {
-		printf("Bloco incompativel!\n");
-		return 1;
-	}
 
 	matriz_bloco_t *newBloco = NULL;
 	int size[2] = {lin_fim - lin_inicio+1, col_fim - col_inicio+1};
@@ -109,6 +105,12 @@ int criaSubmatriz( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, i
 	newBloco->bloco->lin_fim= lin_fim;
 	newBloco->bloco->col_inicio = col_inicio;
 	newBloco->bloco->col_fim = col_fim;
+
+		if ((lin_inicio > lin_fim) || (col_inicio > col_fim)) {
+		printf("Bloco incompativel!\n");
+		free(newBloco);
+		return 1;
+	}
 
 	newBloco->matriz = (int **) malloc( size[0] * sizeof(int *));
 	if (!newBloco->matriz) {
