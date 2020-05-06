@@ -79,7 +79,7 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	criaSubmatriz(mat_a->matriz, 0, mat_a->lin, 0, mat_a->col, &submatTeste);
 
 	printf("printBloco %i\n", submatTeste->bloco->lin_inicio);
-	mostraSubmatriz( &submatTeste);
+	mostraSubmatriz( submatTeste);
 
 	return mat_c;
 }
