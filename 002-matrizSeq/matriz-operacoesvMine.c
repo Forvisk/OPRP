@@ -137,10 +137,11 @@ void printBloco( matriz_bloco_t *submat){
 	int lin_fim = submat->bloco->lin_fim;
 	int col_inicio = submat->bloco->col_inicio;
 	int col_fim = submat->bloco->col_fim;
+	printf("printBloco 1\n");
 	int size[2] = {	lin_fim - lin_inicio, col_fim - col_inicio};
 	printf("Submatriz:\tlinha\tcoluna\n");
-	printf("\tinicio: %i\t %i\n", &lin_inicio, &col_inicio);
-	printf("\tfim:%i\t %i\n", &lin_fim, &col_fim);
+	printf("\tinicio: %i\t %i\n", lin_inicio, col_inicio);
+	printf("\tfim:%i\t %i\n", lin_fim, col_fim);
 	printf("Valores:");
 	for (int i = 0; i < size[0]; ++i){
 			printf("\t\n");
