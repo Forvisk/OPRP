@@ -76,7 +76,7 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 			}
 	}
 
-	if ( !criaBloco(mat_a, 1, 2, 1, 2, submatTeste)){
+	if ( criaBloco(mat_a, 1, 2, 1, 2, submatTeste) == 1){
 		printf("Erro ao criar bloco\n");
 	}else{
 		printBloco(submatTeste);
