@@ -78,7 +78,7 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	if ( criaSubmatriz(mat_a, 0, mat_a->lin, 0, mat_a->col, submatTeste) == 1){
 		printf("Erro ao criar bloco\n");
 	}else{
-		printf("printBloco\n");
+		printf("printBloco %i\n", submatTeste->bloco->lin_inicio);
 		mostraSubmatriz( submatTeste);
 	}
 
