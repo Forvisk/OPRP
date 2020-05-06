@@ -94,7 +94,7 @@ int multiplicar_submatriz (matriz_bloco_t *mat_suba, matriz_bloco_t *mat_subb, m
 	return 0;
 }
 
-int criaSubmatriz( int **mat, int lin_inicio, int lin_fim, int col_inicio, int col_fim, matriz_bloco_t *submat){
+int criaSubmatriz( int **mat, matriz_bloco_t *submat, int lin_inicio, int lin_fim, int col_inicio, int col_fim){
 	bloco_t *newBloco;
 	newBloco->lin_inicio = lin_inicio;
 	newBloco->lin_fim = lin_fim;
@@ -115,7 +115,7 @@ void mostraSubmatriz( matriz_bloco_t *submat){
 
 	printf("Submatriz:\tlinha\tcoluna\n");
 	printf("\tinicio: %i\t %i\n", lin_inicio, col_inicio);
-	printf("\tfim:%i\t %i\n", lin_fim, col_fim);
+	printf("\tfim:\t%i\t %i\n", lin_fim, col_fim);
 	printf("Valores:");
 	for (int i = lin_inicio; i < col_fim; i++){
 			printf("\t\n");
