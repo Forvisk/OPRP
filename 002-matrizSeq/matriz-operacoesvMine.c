@@ -124,12 +124,13 @@ int criaBloco( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, int c
 			newBloco->matriz[i][j] = mat->matriz[lin_inicio + i][col_inicio + j];
 		}
 
+	printf("criaBloco 3\n");
 	submat = newBloco;
 	return 0;
 }
 
 void printBloco( matriz_bloco_t *submat){
-	int size[2] = {submat->bloco->lin_fim - submat->bloco->col_inicio, submat->bloco->col_fim - submat->bloco->col_inicio};
+	int size[2] = {submat->bloco->lin_fim - submat->bloco->lin_inicio, submat->bloco->col_fim - submat->bloco->col_inicio};
 	printf("Submatriz:\tlinha\tcoluna\n");
 	printf("\tinicio: %i\t %i\n", submat->bloco->lin_inicio, submat->bloco->col_inicio);
 	printf("\tfim:%i\t %i\n", submat->bloco->lin_fim, submat->bloco->col_fim);
