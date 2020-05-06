@@ -78,10 +78,10 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 
 	if ( criaBloco(&mat_a, 1, 2, 1, 2, &submatTeste) == 1){
 		printf("Erro ao criar bloco\n");
-	}/*else{
+	}else{
 		printf("printBloco\n");
 		printBloco( &submatTeste);
-	}*/
+	}
 
 	return mat_c;
 }
@@ -129,16 +129,6 @@ int criaBloco( mymatriz *mat, int lin_inicio, int lin_fim, int col_inicio, int c
 	submat = newBloco;
 
 	//Para testesm printaremos o bloco aqui
-	printf("Submatriz:\tlinha\tcoluna\n");
-	printf("\tinicio: %i\t %i\n", lin_inicio, col_inicio);
-	printf("\tfim:%i\t %i\n", lin_fim, col_fim);
-	printf("Valores:");
-	for (int i = 0; i < size[0]; ++i){
-			printf("\t\n");
-			for(int j = 0; j < size[1]; j++)
-				printf("%i\t", submat->matriz[i][j]);
-	}
-	printf("\nFim Submatriz\n");
 	return 0;
 }
 
@@ -149,8 +139,8 @@ void printBloco( matriz_bloco_t *submat){
 	int col_fim = submat->bloco->col_fim;
 	int size[2] = {	lin_fim - lin_inicio, col_fim - col_inicio};
 	printf("Submatriz:\tlinha\tcoluna\n");
-	printf("\tinicio: %i\t %i\n", lin_inicio, col_inicio);
-	printf("\tfim:%i\t %i\n", lin_fim, col_fim);
+	printf("\tinicio: %i\t %i\n", &lin_inicio, &col_inicio);
+	printf("\tfim:%i\t %i\n", &lin_fim, &col_fim);
 	printf("Valores:");
 	for (int i = 0; i < size[0]; ++i){
 			printf("\t\n");
