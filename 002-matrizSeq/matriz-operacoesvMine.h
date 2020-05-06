@@ -31,4 +31,5 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo);
 
 int multiplicar_submatriz (matriz_bloco_t *mat_suba, matriz_bloco_t *mat_subb, matriz_bloco_t *mat_subc);
 
-int espagitificaMatriz ( mymatriz *mat_a, mymatriz *mat_b, mymatriz *mat_c);
+matriz_bloco_t *criaBloco( mymatriz *mat, lin_inicio, lin_fim, col_inicio, col_fim);
+void printBloco( matriz_bloco_t *submat);
