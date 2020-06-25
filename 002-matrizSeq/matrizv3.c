@@ -62,12 +62,10 @@ int mimprimir (mymatriz *matriz){
 		printf("\n");
 	}
 
-	printf("\n \
-%%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%%\n \
-	WARNING: Impressão truncada em 15x15! \n \
-	WARNING: Último elemento matriz[%d][%d] = %d \n \
-%%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%%\n", \
-matriz->lin-1, matriz->col-1, matriz->matriz[matriz->lin-1][matriz->col-1]);
+	printf("\n %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%%\n");
+	printf("WARNING: Impressão truncada em 15x15! \n");
+	printf("WARNING: Último elemento matriz[%d][%d] = %d \n", matriz->lin-1, matriz->col-1, matriz->matriz[matriz->lin-1][matriz->col-1]);
+	printf("%%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%%\n");
 	return 0;
 }
 

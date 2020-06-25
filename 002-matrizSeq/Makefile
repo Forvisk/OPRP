@@ -24,8 +24,8 @@ mainEx02: mainEx02.c matrizv3.o toolsv3.o matriz-operacoesv3.o
 mainMine: mainEx02Mine.c matrizv3.o toolsv3.o matriz-operacoesvMine.o
 		$(CC) $(CCFLAGS) matriz-operacoesvMine.o matrizv3.o toolsv3.o mainEx02Mine.c -o $@ $(LDFLAGS)
 
-mainMineSimples: mainEx02Mine_simples.c matrizv3.o toolsv3.o matriz-operacoesvMine.o
-		$(CC) $(CCFLAGS) matriz-operacoesvMine.o matrizv3.o toolsv3.o mainEx02Mine.c -o $@ $(LDFLAGS)
+mainMineSimples: mainEx02Mine.c matrizv3.o toolsv3.o matriz-operacoesvMine_simples.o
+		$(CC) $(CCFLAGS) matriz-operacoesvMine_simples.o matrizv3.o toolsv3.o mainEx02Mine.c -o $@ $(LDFLAGS)
 
 gmat: matrizv3.o toolsv3.o gera_matrizv3.c
 		$(CC) $(CCFLAGS) matrizv3.o toolsv3.o gera_matrizv3.c -o $@ $(LDFLAGS)
