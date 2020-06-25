@@ -55,25 +55,6 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 
 	if (malocar(mat_c)) {	printf ("ERROR: Out of memory\n"); }
 	
-	
-	//Primeiro testemos a forma IDIOTA
-	if (tipo == 0) {
-		for( int i=0; i< mat_c->lin; i++)
-			for (int j = 0; j < mat_c->col; j++) {
-				mat_c->matriz[i][j] = 0;
-				for (int k = 0; k < mat_a->col; k++) {
-					mat_c->matriz[i][j] += mat_a->matriz[i][k] * mat_b->matriz[k][j];
-				}
-			}
-	}else{
-		for( int i=0; i< mat_c->lin; i++)
-			for (int j = 0; j < mat_c->col; j++) {
-				mat_c->matriz[i][j] = 0;
-				for (int k = 0; k < mat_b->col; k++) {
-					mat_c->matriz[i][j] += mat_a->matriz[k][j] * mat_b->matriz[i][k];
-				}
-			}
-	}
 	printf("Gera submatriz\n");
 	submatTeste = (matriz_bloco_t * ) malloc (sizeof( matriz_bloco_t));
 	criaSubmatriz(mat_a->matriz, &submatTeste, 0, mat_a->lin, 0, mat_a->col);
