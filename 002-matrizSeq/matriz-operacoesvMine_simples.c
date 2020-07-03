@@ -33,7 +33,7 @@ mymatriz *msomar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	mymatriz *mat_c = NULL;
-	mymatriz *mat_aux = NULL;
+	//mymatriz *mat_aux = NULL;
 	tipo = tipo % 2;
 	printf("Multiplicar\n");
 	if ((tipo == 0) && (mat_a->col == mat_b->lin)){

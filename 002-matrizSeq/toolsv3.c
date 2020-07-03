@@ -17,7 +17,7 @@ double wtime() {
 int splitv2(const char *str, char sep, int nro_line, int *vetnum) {
   int conta_palavras;
   unsigned int start = 0, stop = 0;
-  char *tmpStr;
+  char *tmpStr = NULL;
 
   #if _DEBUG_
   printf("SPLITv2: \n\tConteúdo da linha (%s)\n\tSeparador (%c)\n\tNro de caracteres na Linha(%d)\n", str, sep, nro_line);

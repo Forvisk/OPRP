@@ -27,6 +27,8 @@ mymatriz *msomar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 			for (int i=0; i < mat_c->lin; i++)
 					mat_c->matriz[i][j] = mat_a->matriz[i][j]+mat_b->matriz[i][j];
 	}
+
+
   return mat_c;
 }
 
@@ -34,7 +36,8 @@ mymatriz *msomar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	mymatriz *mat_c = NULL;
 	tipo = tipo % 2;
-	matriz_bloco_t *submatTeste = NULL;
+	matriz_bloco_t *submatA = NULL;
+	matriz_bloco_t *submatB = NULL;
 
 	if ((tipo == 0) && (mat_a->col == mat_b->lin)){
 		mat_c = (mymatriz *) malloc (sizeof(mymatriz));
@@ -54,13 +57,34 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	}
 
 	if (malocar(mat_c)) {	printf ("ERROR: Out of memory\n"); }
+	mgerar(mat_c, 0);
 	
 	printf("Gera submatriz\n");
-	submatTeste = (matriz_bloco_t * ) malloc (sizeof( matriz_bloco_t));
-	criaSubmatriz(mat_a->matriz, &submatTeste, 0, mat_a->lin, 0, mat_a->col);
+	submatA = (matriz_bloco_t * ) malloc (sizeof( matriz_bloco_t));
+	if (newBloco == NULL) printf("ciraSubmatriz ERROR: Out of memory\n");
+	criaSubmatriz(mat_a->matriz, &submatA, 0, mat_a->lin, 0, mat_a->col);
 
-	printf("printBloco %i\n", submatTeste->bloco->lin_inicio);
-	mostraSubmatriz( &submatTeste);
+	submatB = (matriz_bloco_t * ) malloc (sizeof( matriz_bloco_t));
+	if (newBloco == NULL) printf("ciraSubmatriz ERROR: Out of memory\n");
+	criaSubmatriz(mat_b->matriz, &submatB, 0, mat_b->lin, 0, mat_b->col);
+
+	submatC = (matriz_bloco_t * ) malloc (sizeof( matriz_bloco_t));
+	if (newBloco == NULL) printf("ciraSubmatriz ERROR: Out of memory\n");
+	criaSubmatriz(mat_c->matriz, &submatC, 0, mat_c->lin, 0, mat_c->col);
+
+	//printf("printBloco %i\n", submatTeste->bloco->lin_inicio);
+	//mostraSubmatriz( &submatTeste);
+	for ( i = 0; i < min(mat_a->lin, mat_b->col), i++){
+		submatA->bloco->col_inicio = i;
+		submatA->bloco->col_fim = i+1;
+
+		submatB->bloco->lin_inicio = i;
+		submatB->bloco->lin_fim = i+1;
+
+		multiplicar_submatriz( submatA, submatB, submatC);
+	}
+
+	mat_c = submatC->matriz;
 
 	return mat_c;
 }
@@ -76,7 +100,9 @@ int multiplicar_submatriz (matriz_bloco_t *mat_suba, matriz_bloco_t *mat_subb, m
 }
 
 int criaSubmatriz( int **mat, matriz_bloco_t *submat, int lin_inicio, int lin_fim, int col_inicio, int col_fim){
-	bloco_t *newBloco;
+	bloco_t *newBloco = NULL;
+	newBloco = (bloco_t *) malloc (sizeof(bloco_t));
+	if (newBloco == NULL) printf("ciraSubmatriz ERROR: Out of memory\n");
 	newBloco->lin_inicio = lin_inicio;
 	newBloco->lin_fim = lin_fim;
 	newBloco->col_inicio = col_inicio;
@@ -104,4 +130,11 @@ void mostraSubmatriz( matriz_bloco_t *submat){
 				printf("%i\t", submat->matriz[i][j]);
 	}
 	printf("\nFim Submatriz\n");
+}
+
+int min(int a, int b){
+	if( a > b)
+		return b;
+	else
+		return a;
 }
