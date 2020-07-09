@@ -1,13 +1,16 @@
 ###################################################
 ### Disciplina de Programação Paralela Avançada ###
 ###################################################
-Revisão: ago/2019
+Revisão: 02/2020
 Linguagem: C
 Versão: v3 (tools, matriz, matriz-operacoes)
-Executáveis: main e gmat
+Executáveis: main, gmat, mainMine e mainMineSimples
 
 main: código principal de teste das funções
 gmat: gerador de matrizes NxM em arquivo
+
+mainMineSimples: código que utiliza multiplicação de matriz da forma simples.
+mainMine: código que utiliza multiplicação de matriz em bloco.
 
 ARQUIVOS:
  * README-res: resultado da execução de exemplo (./main mat_a3x4.example mat_b4x3.example);
@@ -19,3 +22,9 @@ ARQUIVOS:
  * matrizv3.c: EM BRANCO (deve ser implementado);
  * gera_matrizv3.c: fontes do programa de geração de matrizes em arquivo;
  * main_matrizv3.c: fontes do programa de teste das operações de matrizes;
+ARQUIVOS MEUS
+ * main-operacoesMine.h: header das funções que implementei
+ * main-operacoesMine.c: fonte do programa de multiplicação de matrizes em bloco.
+ * main-operacoesMine_simples.c: fonte do programa de multiplicação de matrizes simples.
+
+ PS.: Caso tenha erros é devido ao fato de eu ter feito em cima da hora e meu computador não quer executar nada com alocação dinâmica por motivos obscuros.
