@@ -31,6 +31,6 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo);
 
 int multiplicar_submatriz (matriz_bloco_t *mat_suba, matriz_bloco_t *mat_subb, matriz_bloco_t *mat_subc);
 
-int criaSubmatriz( int **mat, matriz_bloco_t *submat, int lin_inicio, int lin_fim, int col_inicio, int col_fim);
+int criaBloco( int **mat, matriz_bloco_t *submat, int lin_inicio, int lin_fim, int col_inicio, int col_fim);
 void mostraSubmatriz( matriz_bloco_t *submat);
 int min( int a, int b);
