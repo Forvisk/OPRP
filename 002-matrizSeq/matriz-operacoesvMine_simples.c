@@ -1,4 +1,4 @@
-#include "matriz-operacoesv3.h"
+#include "matriz-operacoesvMine.h"
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MATRIZ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -46,6 +46,11 @@ mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 		mat_c->lin = mat_b->lin;
 		mat_c->col = mat_a->col;
 
+	}else if (tipo == 1){
+		printf("Matriz a: %d %d \n", mat_b->lin, mat_b->col);
+		printf("Matriz b: %d %d \n", mat_a->lin, mat_a->col);
+		printf ("Erro: Matrizes incompatíveis!\n");
+		exit(1);
 	}else{
 		printf("Matriz a: %d %d \n", mat_a->lin, mat_a->col);
 		printf("Matriz b: %d %d \n", mat_b->lin, mat_b->col);

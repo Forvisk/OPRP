@@ -4,13 +4,14 @@
 Revisão: 02/2020
 Linguagem: C
 Versão: v3 (tools, matriz, matriz-operacoes)
-Executáveis: main, gmat, mainMine e mainMineSimples
+Executáveis: main, gmat, mainMine, mainSimples e mainThread.
 
 main: código principal de teste das funções
 gmat: gerador de matrizes NxM em arquivo
 
-mainMineSimples: código que utiliza multiplicação de matriz da forma simples.
+mainSimples: código que utiliza multiplicação de matriz da forma simples.
 mainMine: código que utiliza multiplicação de matriz em bloco.
+mainThread: código que utiliza threads em multiplicação em bloco.-
 
 ARQUIVOS:
  * README-res: resultado da execução de exemplo (./main mat_a3x4.example mat_b4x3.example);
@@ -23,8 +24,10 @@ ARQUIVOS:
  * gera_matrizv3.c: fontes do programa de geração de matrizes em arquivo;
  * main_matrizv3.c: fontes do programa de teste das operações de matrizes;
 ARQUIVOS MEUS
- * main-operacoesMine.h: header das funções que implementei
- * main-operacoesMine.c: fonte do programa de multiplicação de matrizes em bloco.
- * main-operacoesMine_simples.c: fonte do programa de multiplicação de matrizes simples.
+ * main-operacoesvMine.h: header das funções que implementei
+ * main-operacoesvMine.c: fonte do programa de multiplicação de matrizes em bloco.
+ * main-operacoesvMine_simples.c: fonte do programa de multiplicação de matrizes simples.
+ * main-operacoesvThreads.c: fonte do programa de multiplicação de matrizes por Threads.
+ * main-operacoesvThreads.h: header das funções em Threads
 
- PS.: Caso tenha erros é devido ao fato de eu ter feito em cima da hora e meu computador não quer executar nada com alocação dinâmica por motivos obscuros.
+ PS.: Testes com matrizes 10000 x 10000 não foram bem aceitos.

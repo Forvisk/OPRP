@@ -24,12 +24,21 @@ typedef struct {
   int lin;
   int col;
 } mymatriz;
+
+typedef struct {
+	matriz_bloco_t *bloco_a;
+	matriz_bloco_t *bloco_b;
+	int nLinha;
+	int nColuna;
+	mymatriz *mat_c;
+} param_t1;
 #endif
 
 mymatriz *msomar (mymatriz *mat_a, mymatriz *mat_b, int tipo);
 mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo);
 
 mymatriz *mmultiplicarBloco (matriz_bloco_t *bloc_a, matriz_bloco_t *bloc_b, int nLinha, int nColuna);
+void mmultiplicarBloco_worker( void *args);
 
 void multiplicar_submatriz (matriz_bloco_t *bloc_a, matriz_bloco_t *bloc_b, mymatriz *mat_c);
 
@@ -37,4 +46,4 @@ matriz_bloco_t *criaBloco( int **mat, int lin_inicio, int lin_fim, int col_inici
 
 void mostraSubmatriz( matriz_bloco_t *submat);
 int min( int a, int b);
-void limpaBloco( matriz_bloco_t *bloco);
+int limpaBloco( matriz_bloco_t *sbloco);

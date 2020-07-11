@@ -24,6 +24,14 @@ typedef struct {
   int lin;
   int col;
 } mymatriz;
+
+typedef struct {
+  matriz_bloco_t *bloco_a;
+  matriz_bloco_t *bloco_b;
+  int nLinha;
+  int nColuna;
+  mymatriz *mat_c;
+} param_t1;
 #endif
 
 // gerência de matrizes

@@ -4,7 +4,7 @@
 CC = gcc
 CCFLAGS = -Wall -O3
 LDFLAGS =
-TARGET = mainEx02 gmat mainEx01 help
+TARGET = mainEx02 gmat mainEx01 help mainMine mainSimples mainThread
 
 all: $(TARGET)
 
@@ -24,11 +24,15 @@ mainEx02: mainEx02.c matrizv3.o toolsv3.o matriz-operacoesv3.o
 mainMine: mainEx02Mine.c matrizv3.o toolsv3.o matriz-operacoesvMine.o
 		$(CC) $(CCFLAGS) matriz-operacoesvMine.o matrizv3.o toolsv3.o mainEx02Mine.c -o $@ $(LDFLAGS)
 
-mainMineSimples: mainEx02Mine.c matrizv3.o toolsv3.o matriz-operacoesvMine_simples.o
+mainSimples: mainEx02Mine.c matrizv3.o toolsv3.o matriz-operacoesvMine_simples.o
 		$(CC) $(CCFLAGS) matriz-operacoesvMine_simples.o matrizv3.o toolsv3.o mainEx02Mine.c -o $@ $(LDFLAGS)
 
 gmat: matrizv3.o toolsv3.o gera_matrizv3.c
 		$(CC) $(CCFLAGS) matrizv3.o toolsv3.o gera_matrizv3.c -o $@ $(LDFLAGS)
+
+mainThread: mainEx02Mine.c matrizv3.o toolsv3.o matriz-operacoesvThread.o
+		$(CC) $(CCFLAGS) matriz-operacoesvThread.o matrizv3.o toolsv3.o mainEx02Mine.c -o $@ $(LDFLAGS)
+
 
 help:
 	@echo
@@ -40,8 +44,3 @@ help:
 
 clean:
 	rm -f *.o *~ $(TARGET) *.map *.result
-
-gitpush:
-		git add *
-		git commit -m 'auto'
-		git push

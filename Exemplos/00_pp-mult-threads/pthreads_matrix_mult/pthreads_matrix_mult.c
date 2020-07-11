@@ -46,8 +46,7 @@ void matrix_mult(int tid, int ntasks, matrix_t* A, matrix_t* B, matrix_t* C)
 /*
  * Funcao executada por uma thread
  */
-void *matrix_mult_worker(void *arg)
-{
+void *matrix_mult_worker(void *arg) {
    param_t *p = (param_t *) arg;
    matrix_mult(p->tid, p->ntasks, p->A, p->B, p->C);
 }
