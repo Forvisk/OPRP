@@ -29,8 +29,12 @@ typedef struct {
 mymatriz *msomar (mymatriz *mat_a, mymatriz *mat_b, int tipo);
 mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo);
 
-int multiplicar_submatriz (matriz_bloco_t *mat_suba, matriz_bloco_t *mat_subb, matriz_bloco_t *mat_subc);
+mymatriz *mmultiplicarBloco (matriz_bloco_t *bloc_a, matriz_bloco_t *bloc_b, int nLinha, int nColuna);
 
-int criaBloco( int **mat, matriz_bloco_t *submat, int lin_inicio, int lin_fim, int col_inicio, int col_fim);
+void multiplicar_submatriz (matriz_bloco_t *bloc_a, matriz_bloco_t *bloc_b, mymatriz *mat_c);
+
+matriz_bloco_t *criaBloco( int **mat, int lin_inicio, int lin_fim, int col_inicio, int col_fim);
+
 void mostraSubmatriz( matriz_bloco_t *submat);
 int min( int a, int b);
+void limpaBloco( matriz_bloco_t *bloco);
