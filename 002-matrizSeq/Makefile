@@ -4,7 +4,7 @@
 CC = gcc
 CCFLAGS = -Wall -O3
 LDFLAGS =
-TARGET = mainEx02 gmat mainEx01 help mainMine mainSimples mainThread
+TARGET =  gmat help mainSimples mainThread mainBloco
 
 all: $(TARGET)
 
@@ -14,33 +14,26 @@ all: $(TARGET)
 %: %.o
 	$(CC) $(LDFLAGS) $^ -o $@
 
-mainEx01: mainEx01.c matrizv3.o toolsv3.o
-			$(CC) $(CCFLAGS) matrizv3.o toolsv3.o mainEx01.c -o $@ $(LDFLAGS)
-
-
-mainEx02: mainEx02.c matrizv3.o toolsv3.o matriz-operacoesv3.o
-		$(CC) $(CCFLAGS) matriz-operacoesv3.o matrizv3.o toolsv3.o mainEx02.c -o $@ $(LDFLAGS)
-
-mainMine: mainEx02Mine.c matrizv3.o toolsv3.o matriz-operacoesvMine.o
-		$(CC) $(CCFLAGS) matriz-operacoesvMine.o matrizv3.o toolsv3.o mainEx02Mine.c -o $@ $(LDFLAGS)
-
-mainSimples: mainEx02Mine.c matrizv3.o toolsv3.o matriz-operacoesvMine_simples.o
-		$(CC) $(CCFLAGS) matriz-operacoesvMine_simples.o matrizv3.o toolsv3.o mainEx02Mine.c -o $@ $(LDFLAGS)
+mainSimples: main.c matrizv3.o toolsv3.o matriz-operacoesvMine_simples.o
+		$(CC) $(CCFLAGS) matriz-operacoesvMine_simples.o matrizv3.o toolsv3.o main.c -o $@ $(LDFLAGS)
 
 gmat: matrizv3.o toolsv3.o gera_matrizv3.c
 		$(CC) $(CCFLAGS) matrizv3.o toolsv3.o gera_matrizv3.c -o $@ $(LDFLAGS)
 
-mainThread: mainEx02Mine.c matrizv3.o toolsv3.o matriz-operacoesvThread.o
-		$(CC) $(CCFLAGS) matriz-operacoesvThread.o matrizv3.o toolsv3.o mainEx02Mine.c -o $@ $(LDFLAGS)
+mainBloco: main.c matrizv3.o toolsv3.o matriz-operacoesvMine.o
+		$(CC) $(CCFLAGS) matriz-operacoesvMine.o matrizv3.o toolsv3.o main.c -o $@ $(LDFLAGS)
+
+mainThread: main.c matrizv3.o toolsv3.o matriz-operacoesvThread.o
+		$(CC) $(CCFLAGS) matriz-operacoesvThread.o matrizv3.o toolsv3.o main.c -o $@ $(LDFLAGS)
 
 
 help:
 	@echo
 	@echo
 	@echo "####### Exemplo de Execução #######"
-	@echo "./main mat_a3x4.example mat_b4x3.example"
-	@echo "./mainMine mat_a3x4.example mat_b4x3.example"
-	@echo "./mainMineSimples mat_a3x4.example mat_b4x3.example"
+	@echo "./mainBloco mat_a3x4.example mat_b4x3.example"
+	@echo "./mainSimples mat_a3x4.example mat_b4x3.example"
+	@echo "./mainThread mat_a3x4.example mat_b4x3.example"
 
 clean:
 	rm -f *.o *~ $(TARGET) *.map *.result

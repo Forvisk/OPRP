@@ -26,12 +26,13 @@ typedef struct {
 } mymatriz;
 
 typedef struct {
-	matriz_bloco_t *bloco_a;
-	matriz_bloco_t *bloco_b;
-	int nLinha;
-	int nColuna;
-	mymatriz *mat_c;
+  matriz_bloco_t *bloco_a;
+  matriz_bloco_t *bloco_b;
+  int nLinha;
+  int nColuna;
+  mymatriz *mat_c;
 } param_t1;
+
 #endif
 
 mymatriz *msomar (mymatriz *mat_a, mymatriz *mat_b, int tipo);

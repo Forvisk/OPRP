@@ -18,15 +18,15 @@ mymatriz *msomar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	if (malocar(mat_c))
 		printf ("ERROR: Out of memory\n");
 
-	if (tipo == 1) {
+	//if (tipo == 1) {
 		for (int i=0; i < mat_c->lin; i++)
 			for (int j=0; j < mat_c->col; j++)
 				mat_c->matriz[i][j] = mat_a->matriz[i][j]+mat_b->matriz[i][j];
-	} else {
+	/*} else {
 		for (int j=0; j < mat_c->col; j++)
 			for (int i=0; i < mat_c->lin; i++)
 				mat_c->matriz[i][j] = mat_a->matriz[i][j]+mat_b->matriz[i][j];
-	}
+	}*/
 	//printf("Soma matrizes\n");
 	return mat_c;
 }
@@ -34,52 +34,30 @@ mymatriz *msomar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo) {
 	mymatriz *mat_c = NULL;
-	tipo = tipo % 2;
 	matriz_bloco_t *submatA = NULL;
 	matriz_bloco_t *submatB = NULL;
 	int nLinha, nColuna;
 
-	if ((tipo == 1) && (mat_a->lin != mat_b->col)){
-		printf("Matriz a: %d %d \n", mat_b->lin, mat_b->col);
-		printf("Matriz b: %d %d \n", mat_a->lin, mat_a->col);
-		printf ("Erro: Matrizes incompatíveis!\n");
-		exit(1);
-	}else if ((tipo == 0) && (mat_a->col != mat_b->lin)){
+	if ((mat_a->col != mat_b->lin)){
 		printf("Matriz a: %d %d \n", mat_a->lin, mat_a->col);
 		printf("Matriz b: %d %d \n", mat_b->lin, mat_b->col);
 		printf ("Erro: Matrizes incompatíveis!\n");
 		exit(1);
 	}
 
-	if (tipo == 0) {
-		submatA = criaBloco(mat_a->matriz, 0, mat_a->lin, 0, mat_a->col);
-		if (submatA == NULL) {
-			printf("MINE > mmultiplicar > erro criação submatriz\n");
-			return NULL;
-		}
-
-		submatB = criaBloco(mat_b->matriz, 0, mat_b->lin, 0, mat_b->col);
-		if (submatB == NULL) {
-			printf("MINE > mmultiplicar > erro criação submatriz\n");
-			return NULL;
-		}
-		nLinha = mat_a->lin;
-		nColuna = mat_b->col;
-	}else{
-		submatA = criaBloco(mat_b->matriz, 0, mat_b->lin, 0, mat_b->col);
-		if (submatA == NULL) {
-			printf("MINE > mmultiplicar > erro criação submatriz\n");
-			return NULL;
-		}
-
-		submatB = criaBloco(mat_a->matriz, 0, mat_a->lin, 0, mat_a->col);
-		if (submatB == NULL) {
-			printf("MINE > mmultiplicar > erro criação submatriz\n");
-			return NULL;
-		}
-		nLinha = mat_b->lin;
-		nColuna = mat_a->col;
+	submatA = criaBloco(mat_a->matriz, 0, mat_a->lin, 0, mat_a->col);
+	if (submatA == NULL) {
+		printf("MINE > mmultiplicar > erro criação submatriz\n");
+		return NULL;
 	}
+
+	submatB = criaBloco(mat_b->matriz, 0, mat_b->lin, 0, mat_b->col);
+	if (submatB == NULL) {
+		printf("MINE > mmultiplicar > erro criação submatriz\n");
+		return NULL;
+	}
+	nLinha = mat_a->lin;
+	nColuna = mat_b->col;
 
 	mat_c = mmultiplicarBloco( submatA, submatB, nLinha, nColuna);
 	limpaBloco(submatA);
