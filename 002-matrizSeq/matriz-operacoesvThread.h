@@ -30,15 +30,20 @@ typedef struct {
 	matriz_bloco_t *bloco_b;
 	int nLinha;
 	int nColuna;
+  int id;
 	mymatriz *mat_c;
 } param_t1;
+
 #endif
 
 mymatriz *msomar (mymatriz *mat_a, mymatriz *mat_b, int tipo);
-mymatriz *mmultiplicar (mymatriz *mat_a, mymatriz *mat_b, int tipo);
+mymatriz *mmultiplicarvSimples (mymatriz *mat_a, mymatriz *mat_b, int tipo);
+mymatriz *mmultiplicarvBloco (mymatriz *mat_a, mymatriz *mat_b, int tipo);
+mymatriz *mmultiplicarvThread (mymatriz *mat_a, mymatriz *mat_b, int tipo);
 
-mymatriz *mmultiplicarBloco (matriz_bloco_t *bloc_a, matriz_bloco_t *bloc_b, int nLinha, int nColuna);
-void mmultiplicarBloco_worker( void *args);
+mymatriz *mmultiplicarBlocos (matriz_bloco_t *bloc_a, matriz_bloco_t *bloc_b, int nLinha, int nColuna, int profundidade);
+
+void *mmultiplicarBloco_worker( void *args);
 
 void multiplicar_submatriz (matriz_bloco_t *bloc_a, matriz_bloco_t *bloc_b, mymatriz *mat_c);
 

@@ -30,6 +30,7 @@ typedef struct {
   matriz_bloco_t *bloco_b;
   int nLinha;
   int nColuna;
+  int profundidade;
   mymatriz *mat_c;
 } param_t1;
 

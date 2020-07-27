@@ -31,6 +31,7 @@ typedef struct {
   int nLinha;
   int nColuna;
   mymatriz *mat_c;
+  int id;
 } param_t1;
 #endif
 

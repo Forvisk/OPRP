@@ -4,7 +4,7 @@
 CC = gcc
 CCFLAGS = -Wall -O3
 LDFLAGS =
-TARGET =  gmat help mainSimples mainThread mainBloco
+TARGET =  gmat help mainSimples mainThread mainBloco main
 
 all: $(TARGET)
 
@@ -14,17 +14,20 @@ all: $(TARGET)
 %: %.o
 	$(CC) $(LDFLAGS) $^ -o $@
 
-mainSimples: main.c matrizv3.o toolsv3.o matriz-operacoesvMine_simples.o
-		$(CC) $(CCFLAGS) matriz-operacoesvMine_simples.o matrizv3.o toolsv3.o main.c -o $@ $(LDFLAGS)
+mainSimples: AZJ_main.c matrizv3.o toolsv3.o matriz-operacoesvMine_simples.o
+		$(CC) $(CCFLAGS) matriz-operacoesvMine_simples.o matrizv3.o toolsv3.o AZJ_main.c -o $@ $(LDFLAGS)
 
 gmat: matrizv3.o toolsv3.o gera_matrizv3.c
 		$(CC) $(CCFLAGS) matrizv3.o toolsv3.o gera_matrizv3.c -o $@ $(LDFLAGS)
 
-mainBloco: main.c matrizv3.o toolsv3.o matriz-operacoesvMine.o
-		$(CC) $(CCFLAGS) matriz-operacoesvMine.o matrizv3.o toolsv3.o main.c -o $@ $(LDFLAGS)
+mainBloco: AZJ_main.c matrizv3.o toolsv3.o matriz-operacoesvMine.o
+		$(CC) $(CCFLAGS) matriz-operacoesvMine.o matrizv3.o toolsv3.o AZJ_main.c -o $@ $(LDFLAGS)
 
-mainThread: main.c matrizv3.o toolsv3.o matriz-operacoesvThread.o
-		$(CC) $(CCFLAGS) matriz-operacoesvThread.o matrizv3.o toolsv3.o main.c -o $@ $(LDFLAGS)
+mainThread: AZJ_main.c matrizv3.o toolsv3.o matriz-operacoesvThread.o
+		$(CC) $(CCFLAGS) matriz-operacoesvThread.o matrizv3.o toolsv3.o AZJ_main.c -o $@ $(LDFLAGS)
+
+main: AZJ_main.c matrizv3.o toolsv3.o matriz-operacoesvThread.o
+		$(CC) $(CCFLAGS) matriz-operacoesvThread.o matrizv3.o toolsv3.o AZJ_main.c -o $@ $(LDFLAGS)
 
 
 help:
