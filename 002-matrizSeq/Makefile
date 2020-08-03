@@ -2,9 +2,11 @@
 # Revisão: ago/2019
 
 CC = gcc
-CCFLAGS = -Wall -O3
-LDFLAGS =
-TARGET =  gmat help mainSimples mainThread mainBloco main
+CCFLAGS = -Wall -O3 -fopenmp
+CCFLAGSOPMP = -Wall -O3 -fopenmp
+LDFLAGS = 
+LDFLAGSOPMP = --openmp
+TARGET =  gmat help mainSimples mainThread mainBloco main mainOpenMP
 
 all: $(TARGET)
 
@@ -29,6 +31,9 @@ mainThread: AZJ_main.c matrizv3.o toolsv3.o matriz-operacoesvThread.o
 main: AZJ_main.c matrizv3.o toolsv3.o matriz-operacoesvThread.o
 		$(CC) $(CCFLAGS) matriz-operacoesvThread.o matrizv3.o toolsv3.o AZJ_main.c -o $@ $(LDFLAGS)
 
+mainOpenMP: AZJ_mainOpenMP.c matrizv3.o toolsv3.o matriz-operacoesvOpenMP.o
+		$(CC) $(CCFLAGSOPMP) matriz-operacoesvOpenMP.o matrizv3.o toolsv3.o AZJ_mainOpenMP.c -o $@ $(LDFLAGS)
+
 
 help:
 	@echo
@@ -37,6 +42,7 @@ help:
 	@echo "./mainBloco mat_a3x4.example mat_b4x3.example"
 	@echo "./mainSimples mat_a3x4.example mat_b4x3.example"
 	@echo "./mainThread mat_a3x4.example mat_b4x3.example"
-
+	@echo "./mainOpenMP mat_a3x4.example mat_b4x3.example"
+	
 clean:
 	rm -f *.o *~ $(TARGET) *.map *.result

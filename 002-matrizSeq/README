@@ -28,6 +28,8 @@ ARQUIVOS MEUS
  * main-operacoesvMine_simples.c: fonte do programa de multiplicação de matrizes simples.
  * main-operacoesvThreads.c: fonte do programa de multiplicação de matrizes por Threads.
  * main-operacoesvThreads.h: header das funções em Threads
+ * main-operacoesvOpenMP.c: fonte do programa de multiplicação de matrizes que utilizam de OpenMP.
+ * main-operacoesvOpenMP.h: header das funções emque utilizam de OpenMP.
 
  PS.: Testes com matrizes 10000 x 10000 não foram bem aceitos.
- PS.: Não tem limitador para o numero de Threads :p sorry
+ PS.: OpenMP não trabalha bem com Malloc dentro dos 
